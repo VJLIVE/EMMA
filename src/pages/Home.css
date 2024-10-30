@@ -1,0 +1,166 @@
+/* Home Container */
+/* CSS Reset to Remove Unwanted Spacing */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+.home-container {
+    font-family: 'Poppins', sans-serif;
+    color: #f0f4f8;
+    background: linear-gradient(135deg, #0d0f24, #1b1f3a);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    color: #2ec4b6;
+  }
+  
+  .hero-section p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #adb5bd;
+  }
+  
+  .button-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .connect-button,
+  .explore-button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+  }
+  
+  .connect-button {
+    background-color: #2ec4b6;
+    color: #fff;
+  }
+  
+  .connect-button:hover {
+    background-color: #219ebc;
+    transform: scale(1.05);
+  }
+  
+  .explore-button {
+    background-color: #ff6b6b;
+    color: #fff;
+  }
+  
+  .explore-button:hover {
+    background-color: #e63946;
+    transform: scale(1.05);
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 3rem 2rem;
+    background-color: #1d3557;
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    color: #f4a261;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .feature-card {
+    background-color: #457b9d;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    width: 250px;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Testimonials Section */
+  .testimonials-section {
+    padding: 3rem 2rem;
+    background-color: #14213d;
+    text-align: center;
+  }
+  
+  .testimonials blockquote {
+    font-style: italic;
+    color: #e9c46a;
+    margin: 1rem 0;
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    padding: 3rem 2rem;
+    background-color: #264653;
+  }
+  
+  .faq-section h2 {
+    text-align: center;
+    color: #e76f51;
+  }
+  
+  details {
+    margin-top: 1rem;
+    background-color: #1d3557;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  details[open] {
+    background-color: #2a9d8f;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0d0f24;
+    color: #adb5bd;
+    font-size: 0.9rem;
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

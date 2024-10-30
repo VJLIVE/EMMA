@@ -1,0 +1,100 @@
+/* Wrapper to center the container */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f9fc; /* Light background color for better contrast */
+}
+
+/* Styling for the container */
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h2 {
+  font-size: 24px;
+  color: #1a73e8;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Textarea specific styling */
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+/* Focus effect for inputs */
+input:focus,
+textarea:focus {
+  border-color: #1a73e8;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(26, 115, 232, 0.3);
+}
+
+/* Button styling */
+button[type="submit"] {
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for hover effect */
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+  background-color: #155bb5;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Button focus effect */
+button[type="submit"]:focus {
+  outline: none;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px; /* Adjust position for error message */
+  margin-bottom: 15px; /* Add space below the error message */
+  text-align: center; /* Center align error message */
+}
