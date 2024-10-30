@@ -1,0 +1,27 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users Collection
+    match /users/{userId} {
+      allow read: if request.auth != null; // Authenticated users can read user data
+      allow write: if request.auth != null && request.auth.uid == userId; // Users can write only their own data
+      allow update: if request.auth != null && request.auth.uid == userId; // Users can update their own data
+      allow delete: if request.auth != null && request.auth.uid == userId; // Users can delete their own data
+    }
+
+    // Events Collection
+    match /events/{eventId} {
+      allow read: if request.auth != null; // Authenticated users can read all events
+      allow write: if request.auth != null; // Authenticated users can create events
+      allow update: if request.auth != null && resource.data.createdBy == request.auth.uid; // Only event creators can update their events
+      allow delete: if request.auth != null && resource.data.createdBy == request.auth.uid; // Only event creators can delete their events
+    }
+
+    // User Events Collection (if tracking joined events)
+    match /userEvents/{userEventId} {
+      allow read: if request.auth != null; // Authenticated users can read their joined events
+      allow write: if request.auth != null && request.auth.token.email == resource.data.email; // Only the user can write to their own joined events
+      allow delete: if request.auth != null && request.auth.token.email == resource.data.email; // Users can delete their own joined events
+    }
+  }
+}
