@@ -1,0 +1,70 @@
+/* src/pages/AskPin.css */
+
+/* Container for AskPin page */
+.ask-pin-container {
+    max-width: 400px; /* Set max width for the container */
+    margin: 80px auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect on container */
+  .ask-pin-container:hover {
+    transform: translateY(-5px); /* Lift effect */
+  }
+  
+  /* Title styling */
+  .ask-pin-title {
+    text-align: center;
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below title */
+  }
+  
+  /* Form styling */
+  .ask-pin-form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+  }
+  
+  /* Input styling */
+  .pin-input {
+    padding: 10px;
+    margin-bottom: 20px; /* Space below input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s ease; /* Transition for border color */
+  }
+  
+  /* Focus effect on input */
+  .pin-input:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Submit button styling */
+  .submit-button {
+    padding: 12px 20px; /* Padding for button */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background-color: #3498db; /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background */
+  }
+  
+  /* Hover effect for button */
+  .submit-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
+  /* Active effect for button */
+  .submit-button:active {
+    background-color: #1f6391; /* Even darker blue on click */
+  }
+  

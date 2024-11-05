@@ -1,0 +1,61 @@
+/* src/pages/SetPin.css */
+
+/* Set Pin Container */
+.set-pin-container {
+    max-width: 400px;
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading */
+  .set-pin-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  .set-pin-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Input Fields */
+  .pin-input {
+    padding: 12px;
+    margin-bottom: 15px; /* Space between inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .pin-input:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Set Pin Button */
+  .set-pin-button {
+    padding: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .set-pin-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect */
+  }
+  
+  .set-pin-button:focus {
+    outline: none; /* Remove default outline */
+  }
+  

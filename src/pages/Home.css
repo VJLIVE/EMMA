@@ -1,0 +1,91 @@
+/* src/pages/Home.css */
+
+/* Home Container */
+.home-container {
+    max-width: 800px; /* Limit width for larger screens */
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect on container */
+  .home-container:hover {
+    transform: translateY(-5px); /* Lift effect */
+  }
+  
+  /* Title */
+  .home-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Intro Paragraph */
+  .home-intro {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Overview Section */
+  .home-overview {
+    margin-bottom: 30px;
+  }
+  
+  .home-overview h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* List Styles */
+  .home-overview ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .home-overview li {
+    margin: 8px 0; /* Space between list items */
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Call to Action Section */
+  .home-call-to-action {
+    text-align: center;
+  }
+  
+  .home-call-to-action h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .home-call-to-action p {
+    margin-bottom: 15px;
+    color: #777;
+  }
+  
+  /* Call to Action Button */
+  .cta-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect */
+  }
+  
+  .cta-button:focus {
+    outline: none; /* Remove default outline */
+  }
+  

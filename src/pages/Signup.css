@@ -1,0 +1,86 @@
+/* src/pages/Signup.css */
+
+/* Container for the signup page */
+.signup-container {
+    max-width: 400px; /* Set max width for the container */
+    margin: 80px auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect on container */
+  .signup-container:hover {
+    transform: translateY(-5px); /* Lift effect */
+  }
+  
+  /* Title styling */
+  .signup-title {
+    text-align: center;
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below title */
+  }
+  
+  /* Form styling */
+  .signup-form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+  }
+  
+  /* Input styling */
+  .signup-input {
+    padding: 10px;
+    margin-bottom: 20px; /* Space below input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s ease; /* Transition for border color */
+  }
+  
+  /* Focus effect on input */
+  .signup-input:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Submit button styling */
+  .signup-button {
+    padding: 12px 20px; /* Padding for button */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background-color: #3498db; /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background */
+  }
+  
+  /* Hover effect for button */
+  .signup-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
+  /* Active effect for button */
+  .signup-button:active {
+    background-color: #1f6391; /* Even darker blue on click */
+  }
+  
+  .loginorsignup {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 15px; /* Padding for the button */
+    font-size: 1rem; /* Font size */
+    color: #3498db; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: underline; /* Underline text */
+    transition: color 0.3s ease; /* Transition for color */
+  }
+  
+  /* Hover effect for 'loginorsignup' button */
+  .loginorsignup:hover {
+    color: #2980b9; /* Change text color on hover */
+  }

@@ -1,0 +1,87 @@
+/* src/pages/Dashboard.css */
+
+/* Container styles */
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Dashboard title */
+.dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Wallet Connect section */
+.wallet-connect-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Wallet card styling */
+.wallet-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.wallet-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+/* Wrapper for centering the button */
+.button-center-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Disconnect button styling */
+.disconnect-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.disconnect-button:hover {
+    background-color: #c0392b;
+}
+
+.disconnect-button:focus {
+    outline: none;
+}
+
+/* Connected Wallets section */
+.connected-wallets {
+    margin-top: 30px;
+}
+
+.connected-wallets h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.wallet-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.wallet-item {
+    font-size: 1rem;
+    color: #2c3e50;
+    padding: 5px 0;
+}

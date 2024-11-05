@@ -1,0 +1,39 @@
+/* src/components/WalletConnectButton.css */
+
+/* Centering the button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Button styling */
+.wallet-connect-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    outline: none;
+}
+
+.wallet-connect-button:hover {
+    background: linear-gradient(135deg, #2a80b9, #7d3c98);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-connect-button:active {
+    background: linear-gradient(135deg, #276fb0, #6c2e7b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+}
+
+.wallet-connect-button:focus {
+    outline: 2px solid #3498db;
+}
