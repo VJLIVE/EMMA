@@ -1,8 +1,8 @@
-# Basic Wallet Balance Checker DApp 🚀
+# EMMA - Basic Wallet Balance Checker DApp 🚀
 
 ## Overview 🌍
 
-The **Basic Wallet Balance Checker** is a decentralized application (DApp) designed to provide users with an intuitive interface for managing their Algorand wallets. This application simplifies wallet interaction by integrating user authentication with two-factor authentication (2FA), allowing users to connect multiple wallets, view balances, and manage their transaction histories with privacy features. 🔐💼
+The **EMMA** is a decentralized application (DApp) designed to provide users with an intuitive interface for managing their Algorand wallets. This application simplifies wallet interaction by integrating user authentication with two-factor authentication (2FA), allowing users to connect multiple wallets, view balances, and manage their transaction histories with privacy features. 🔐💼
 
 ## Features 🌟
 
