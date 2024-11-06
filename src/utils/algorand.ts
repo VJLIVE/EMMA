@@ -1,7 +1,6 @@
 // src/utils/algorand.ts
 import { Algodv2, Indexer } from 'algosdk'; // Import Indexer
 import { PeraWalletConnect } from '@perawallet/connect';
-import algosdk from 'algosdk';
 
 export const peraWallet = new PeraWalletConnect();
 
