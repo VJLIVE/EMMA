@@ -28,6 +28,7 @@ const Signup = () => {
         email,
         pin: "",       // Initially, the pin is empty
         wallets: [],   // Initialize with an empty wallets array
+        hidden: []
       });
 
       // Redirect to SetPin page after signup

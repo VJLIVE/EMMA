@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTransactionHistory } from '../utils/algorand.ts';
 import './TransactionHistory.css';  // Import the styles
+import { FaSort } from 'react-icons/fa';  // Import the sorting icon
 
 interface TransactionHistoryProps {
   address: string;
@@ -10,6 +11,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
   const [transactions, setTransactions] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [network, setNetwork] = useState<'mainnet' | 'testnet'>('testnet');
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');  // State to control sorting
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -23,6 +25,19 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
 
     fetchTransactions();
   }, [address, network]);
+
+  // Sort transactions based on the current sort order
+  const sortedTransactions = [...transactions].sort((a, b) => {
+    if (sortOrder === 'newest') {
+      return b.roundTime - a.roundTime;
+    } else {
+      return a.roundTime - b.roundTime;
+    }
+  });
+
+  const handleSortToggle = () => {
+    setSortOrder((prevOrder) => (prevOrder === 'newest' ? 'oldest' : 'newest'));
+  };
 
   if (error) {
     return <div className="error-message">{error}</div>;
@@ -56,9 +71,15 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
         </label>
       </div>
 
+      {/* Sort Icon */}
+      <div className="sort-icon" onClick={handleSortToggle}>
+        <FaSort size={24} />
+        <span className="sort-text">{sortOrder === 'newest' ? 'Newest First' : 'Oldest First'}</span>
+      </div>
+
       {/* Transaction List */}
       <ul className="transaction-list">
-        {transactions.map((tx) => {
+        {sortedTransactions.map((tx) => {
           const isPayment = tx.paymentTransaction && tx.paymentTransaction.amount !== undefined;
           const amount = isPayment
             ? (Number(tx.paymentTransaction.amount / BigInt(1000000))).toFixed(6)
