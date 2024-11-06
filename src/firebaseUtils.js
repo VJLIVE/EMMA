@@ -75,3 +75,55 @@ export const removeWalletAddressFromFirestore = async (walletAddress) => {
     console.error("Error removing wallet address:", error);
   }
 };
+
+export const hideTransaction = async (transactionId) => {
+  const user = auth.currentUser;
+  if (!user) {
+    console.error("No user is logged in.");
+    return;
+  }
+
+  const userDocRef = doc(db, "users", user.uid);
+
+  try {
+    await updateDoc(userDocRef, {
+      hidden: arrayUnion(transactionId), // Add the transaction ID to the hidden array
+    });
+    console.log("Transaction hidden successfully!");
+  } catch (error) {
+    console.error("Error hiding transaction:", error);
+  }
+};
+
+// Unhide a transaction by removing its ID from the hidden array in Firestore
+export const unhideTransaction = async (transactionId) => {
+  const user = auth.currentUser;
+  if (!user) {
+    console.error("No user is logged in.");
+    return;
+  }
+
+  const userDocRef = doc(db, "users", user.uid);
+
+  try {
+    await updateDoc(userDocRef, {
+      hidden: arrayRemove(transactionId), // Remove the transaction ID from the hidden array
+    });
+    console.log("Transaction unhidden successfully!");
+  } catch (error) {
+    console.error("Error unhiding transaction:", error);
+  }
+};
+
+// Retrieve hidden transactions from Firestore
+export const getHiddenTransactions = async (userId) => {
+  const userDocRef = doc(db, "users", userId);
+  const userDocSnapshot = await getDoc(userDocRef);
+
+  if (userDocSnapshot.exists()) {
+    return userDocSnapshot.data().hidden || []; // Return the hidden transactions array or an empty array if it doesn't exist
+  } else {
+    console.error("User document not found.");
+    return []; // Return an empty array if the document doesn't exist
+  }
+};

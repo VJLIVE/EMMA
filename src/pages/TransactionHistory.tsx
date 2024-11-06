@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { auth } from "../firebase";
 import { getTransactionHistory } from '../utils/algorand.ts';
-import './TransactionHistory.css';  // Import the styles
-import { FaSort } from 'react-icons/fa';  // Import the sorting icon
+import { hideTransaction, unhideTransaction, getHiddenTransactions } from '../firebaseUtils';
+import './TransactionHistory.css';
+import { FaSort, FaEllipsisV } from 'react-icons/fa';
 
 interface TransactionHistoryProps {
   address: string;
@@ -9,9 +11,12 @@ interface TransactionHistoryProps {
 
 const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
   const [transactions, setTransactions] = useState<any[]>([]);
+  const [hiddenTransactions, setHiddenTransactions] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [network, setNetwork] = useState<'mainnet' | 'testnet'>('testnet');
-  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');  // State to control sorting
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
+  const [showHidden, setShowHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -26,18 +31,42 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
     fetchTransactions();
   }, [address, network]);
 
-  // Sort transactions based on the current sort order
-  const sortedTransactions = [...transactions].sort((a, b) => {
-    if (sortOrder === 'newest') {
-      return b.roundTime - a.roundTime;
-    } else {
-      return a.roundTime - b.roundTime;
-    }
-  });
+  useEffect(() => {
+    const loadHiddenTransactions = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const hidden = await getHiddenTransactions(user.uid);
+        setHiddenTransactions(hidden);
+      }
+    };
+    loadHiddenTransactions();
+  }, []);
 
   const handleSortToggle = () => {
     setSortOrder((prevOrder) => (prevOrder === 'newest' ? 'oldest' : 'newest'));
   };
+
+  const handleHideTransaction = async (transactionId: string) => {
+    await hideTransaction(transactionId);
+    setHiddenTransactions([...hiddenTransactions, transactionId]);
+  };
+
+  const handleUnhideTransaction = async (transactionId: string) => {
+    await unhideTransaction(transactionId);
+    setHiddenTransactions(hiddenTransactions.filter((id) => id !== transactionId));
+  };
+
+  const toggleMenu = (transactionId: string) => {
+    setMenuOpen((prev) => ({ ...prev, [transactionId]: !prev[transactionId] }));
+  };
+
+  const displayedTransactions = showHidden
+    ? transactions.filter((tx) => hiddenTransactions.includes(tx.id))
+    : transactions.filter((tx) => !hiddenTransactions.includes(tx.id));
+
+  const sortedTransactions = displayedTransactions.sort((a, b) =>
+    sortOrder === 'newest' ? b.roundTime - a.roundTime : a.roundTime - b.roundTime
+  );
 
   if (error) {
     return <div className="error-message">{error}</div>;
@@ -71,18 +100,21 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
         </label>
       </div>
 
-      {/* Sort Icon */}
+      {/* Sort and Show Hidden Toggle */}
       <div className="sort-icon" onClick={handleSortToggle}>
         <FaSort size={24} />
         <span className="sort-text">{sortOrder === 'newest' ? 'Newest First' : 'Oldest First'}</span>
       </div>
+      <button onClick={() => setShowHidden(!showHidden)}>
+        {showHidden ? 'Show All Transactions' : 'Show Hidden Transactions'}
+      </button>
 
       {/* Transaction List */}
       <ul className="transaction-list">
         {sortedTransactions.map((tx) => {
           const isPayment = tx.paymentTransaction && tx.paymentTransaction.amount !== undefined;
           const amount = isPayment
-            ? (Number(tx.paymentTransaction.amount / BigInt(1000000))).toFixed(6)
+            ? (Number(tx.paymentTransaction.amount) / 1e6).toFixed(6)
             : 'N/A';
           const fee = tx.fee ? (Number(tx.fee) / 1e6).toFixed(6) : '0';
 
@@ -93,6 +125,22 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
               <div className="tx-details">Amount: {isPayment ? `${amount} ALGO` : 'N/A'}</div>
               <div className="tx-details">Fee: {fee} ALGO</div>
               <div className="tx-date">Date: {new Date(tx.roundTime * 1000).toLocaleString()}</div>
+
+              {/* Three-dots menu button */}
+              <div className="menu-container">
+                <FaEllipsisV size={20} onClick={() => toggleMenu(tx.id)} />
+                {menuOpen[tx.id] && (
+                  <div className="menu-options">
+                    {showHidden ? (
+                      <button onClick={() => handleUnhideTransaction(tx.id)}>Unhide</button>
+                    ) : (
+                      !hiddenTransactions.includes(tx.id) && (
+                        <button onClick={() => handleHideTransaction(tx.id)}>Hide</button>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
             </li>
           );
         })}
