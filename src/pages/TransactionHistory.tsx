@@ -105,9 +105,6 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
         <FaSort size={24} />
         <span className="sort-text">{sortOrder === 'newest' ? 'Newest First' : 'Oldest First'}</span>
       </div>
-      <button onClick={() => setShowHidden(!showHidden)}>
-        {showHidden ? 'Show All Transactions' : 'Show Hidden Transactions'}
-      </button>
 
       {/* Transaction List */}
       <ul className="transaction-list">
@@ -145,6 +142,9 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ address }) => {
           );
         })}
       </ul>
+      <button onClick={() => setShowHidden(!showHidden)}>
+        {showHidden ? 'Show All Transactions' : 'Show Hidden Transactions'}
+      </button>
     </div>
   );
 };

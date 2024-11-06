@@ -139,9 +139,8 @@ button:hover {
 /* Menu container */
 .menu-container {
   position: relative;
-  display: inline-block;
-  cursor: pointer;
-  float: right;
+  display: flex;
+  justify-content: flex-end;
   margin-top: -5px;
 }
 
