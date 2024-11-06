@@ -47,25 +47,26 @@
   
   /* Submit button styling */
   .signup-button {
-    padding: 12px 20px; /* Padding for button */
-    font-size: 1rem; /* Font size */
-    color: #ffffff; /* Text color */
-    background-color: #3498db; /* Button background color */
+    padding: 14px 25px; /* Padding for button */
+    font-size: 1.1rem; /* Font size */
+    color: #fff; /* White text */
+    background-color: #9c27b0; /* Cosmic purple button */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background */
+    font-weight: bold;
   }
   
   /* Hover effect for button */
   .signup-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.05); /* Scale effect on hover */
+    background-color: #7b1fa2; /* Darker purple on hover */
+    transform: scale(1.05); /* Slight scale effect */
   }
   
   /* Active effect for button */
   .signup-button:active {
-    background-color: #1f6391; /* Even darker blue on click */
+    background-color: #6a1b9a; /* Even darker purple when clicked */
   }
   
   .loginorsignup {

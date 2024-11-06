@@ -1,91 +1,152 @@
-/* src/pages/Home.css */
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
 
 /* Home Container */
 .home-container {
-    max-width: 800px; /* Limit width for larger screens */
-    margin: 40px auto; /* Center the container */
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background */
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  /* Hover effect on container */
-  .home-container:hover {
-    transform: translateY(-5px); /* Lift effect */
-  }
-  
-  /* Title */
-  .home-title {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  /* Intro Paragraph */
-  .home-intro {
-    font-size: 1.1rem;
-    color: #555;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Overview Section */
-  .home-overview {
-    margin-bottom: 30px;
-  }
-  
-  .home-overview h3 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* List Styles */
-  .home-overview ul {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-  }
-  
-  .home-overview li {
-    margin: 8px 0; /* Space between list items */
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Call to Action Section */
-  .home-call-to-action {
-    text-align: center;
-  }
-  
-  .home-call-to-action h3 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .home-call-to-action p {
-    margin-bottom: 15px;
-    color: #777;
-  }
-  
-  /* Call to Action Button */
-  .cta-button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .cta-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.05); /* Scale effect */
-  }
-  
-  .cta-button:focus {
-    outline: none; /* Remove default outline */
-  }
-  
+  background: linear-gradient(135deg, #9b59b6, #8e44ad, #2980b9); /* Cosmic Purple Gradient */
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 20px;
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  background: url('https://example.com/hero-image.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-title {
+  font-size: 3rem; /* Larger font for the title */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #fff;
+  color: #8e44ad; /* Lighter purple button */
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8e44ad; /* Darker purple on hover */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff; /* Ensure the section title is visible */
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.feature-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #8e44ad; /* Purple headings */
+}
+
+.feature-item p {
+  color: #333; /* Dark text for better readability */
+}
+
+/* FAQ Section */
+.faq {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.faq-list {
+  padding: 0 20px;
+}
+
+.faq-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #8e44ad; /* Purple question titles */
+}
+
+.faq-item p {
+  color: #555; /* Dark text for better readability */
+}
+
+/* Footer */
+/* Footer */
+.footer {
+  width: 100%; /* Ensure it takes up the full width */
+  background-color: #2c3e50; /* Dark background for footer */
+  color: #fff; /* White text for contrast */
+  text-align: center; /* Center align text */
+  padding: 20px; /* Padding around the content */
+  position: relative; /* Ensure it's placed correctly at the bottom */
+  bottom: 0; /* Aligns it at the bottom */
+  left: 0; /* Stretch to the left edge */
+  right: 0; /* Stretch to the right edge */
+  box-sizing: border-box; /* Ensure padding does not affect width */
+}

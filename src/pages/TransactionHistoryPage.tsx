@@ -8,7 +8,7 @@ const TransactionHistoryPage: React.FC = () => {
 
   return (
     <div>
-      <h2 style={{textAlign: 'center'}}>Transaction History for {walletAddress || 'Unknown Wallet'}</h2>
+      <h2 style={{textAlign: 'center', marginTop: '20px', color: 'white'}}>Transaction History for {walletAddress || 'Unknown Wallet'}</h2>
       <TransactionHistory address={walletAddress || ''} /> {/* Use fallback value */}
     </div>
   );
